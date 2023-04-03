@@ -30,6 +30,7 @@ public class IPokemonMetadataProviderTest {
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
         PokemonMetadata metadata = metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX);
+
         assertEquals(BULBIZARRE_INDEX, metadata.getIndex());
         assertEquals(BULBIZARRE_NAME, metadata.getName());
         assertEquals(BULBIZARRE_ATTACK, metadata.getAttack());
