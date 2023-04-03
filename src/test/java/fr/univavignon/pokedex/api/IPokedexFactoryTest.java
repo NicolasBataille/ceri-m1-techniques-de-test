@@ -29,8 +29,6 @@ public class IPokedexFactoryTest {
 
     @Test
     public void testCreatePokedex() {
-        IPokedex pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
         assertNotNull(pokedex);
-
     }
 }
