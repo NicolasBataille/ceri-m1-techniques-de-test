@@ -2,4 +2,4 @@ steps:
 - uses: actions/checkout@master
 - uses: codecov/codecov-action@v3
   with:
-    token: ${{ secrets.tp4}}
+    token: ${{ secrets.TP4}}
