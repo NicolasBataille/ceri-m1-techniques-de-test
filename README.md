@@ -1,5 +1,11 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
+Nicolas BATAILLE
+Groupe IA Alternance
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/NicolasBataille/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/NicolasBataille/ceri-m1-techniques-de-test/tree/master)
+
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
