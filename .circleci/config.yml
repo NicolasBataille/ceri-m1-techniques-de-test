@@ -29,7 +29,13 @@ jobs:
       - run:
           name: Test
           command: mvn test
-
+          
+  codecov:
+    steps:
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
