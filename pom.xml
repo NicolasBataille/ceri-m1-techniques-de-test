@@ -64,7 +64,7 @@
                 <version>1.0.0</version>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
+                        <phase>post-site</phase>
                         <goals>
                             <goal>badges</goal>
                         </goals>
@@ -76,6 +76,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
