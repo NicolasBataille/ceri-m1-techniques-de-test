@@ -5,7 +5,7 @@
 Avoir des tests qui nous couvrent bien et un code qui passe les tests en question est un bon début, mais on peut encore aller plus loin !  
 Écrire du "beau" code n'est pas toujours facile et ça l'est encore moins sans les outils appropriés.  
 Pour vous assurez que votre code respecte un ensemble de critères de qualité, intégrez l'outil [checkstyle](https://checkstyle.sourceforge.io/) dans votre processus d'intégration continue. Cet outil vous permettra de générer un rapport sur la qualité syntaxique de votre code.  
-Pensez également à intégrer dans votre README un badge présentant une versions condensée des conclusions du rapport généré.  
+Pensez également à intégrer dans votre README un badge présentant une versions condensée des conclusions du rapport généré.   
 
 ## Épisode 2 - Doc-tor Proctor
 
