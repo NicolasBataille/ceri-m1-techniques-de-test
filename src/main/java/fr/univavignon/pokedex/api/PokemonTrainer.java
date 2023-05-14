@@ -30,16 +30,28 @@ public class PokemonTrainer {
 	}
 	
 	/** Name getter. **/
+	/**
+	 * Returns the trainer name.
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
 	/** Team getter. **/
+	/**
+	 * Returns the trainer team.
+	 * @return
+	 */
 	public Team getTeam() {
 		return team;
 	}
 	
 	/** Pokedex getter. **/
+	/**
+	 * Returns the trainer pokedex.
+	 * @return
+	 */
 	public IPokedex getPokedex() {
 		return pokedex;
 	}

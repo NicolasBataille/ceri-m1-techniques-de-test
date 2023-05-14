@@ -43,5 +43,25 @@ public class IPokemonMetadataProviderTest {
         BULBIZARREMetadata = null;
         metadataProvider = null;
     }
+
+    @Test
+    public void getIndex() {
+    }
+
+    @Test
+    public void getName() {
+    }
+
+    @Test
+    public void getAttack() {
+    }
+
+    @Test
+    public void getDefense() {
+    }
+
+    @Test
+    public void getStamina() {
+    }
 }
 
