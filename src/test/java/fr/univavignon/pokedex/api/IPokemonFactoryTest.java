@@ -20,7 +20,7 @@ public class IPokemonFactoryTest {
         private IPokemonFactory pokemonFactory;
 
         @Before
-        public void setUp() {
+        public void setUp() throws PokedexException {
             BULBIZARRE = new Pokemon(BULBIZARRE_INDEX, "Bulbizarre", 126, 126, 90, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY, 0.56);
 
             pokemonFactory = mock(IPokemonFactory.class);
@@ -28,7 +28,7 @@ public class IPokemonFactoryTest {
         }
 
         @Test
-        public void testCreatePokemon() {
+        public void testCreatePokemon() throws PokedexException {
             Pokemon pokemon = pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY);
             assertEquals(BULBIZARRE_INDEX, pokemon.getIndex());
             assertEquals(BULBIZARRE_CP, pokemon.getCp());
