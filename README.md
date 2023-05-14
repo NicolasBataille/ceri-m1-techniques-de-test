@@ -7,6 +7,7 @@ Groupe IA Alternance
 [![codecov](https://codecov.io/gh/NicolasBataille/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=C1VCDWYIMG)](https://codecov.io/gh/NicolasBataille/ceri-m1-techniques-de-test)
 ![Checkstyle](target/site/badges/checkstyle-result.svg)
 
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
