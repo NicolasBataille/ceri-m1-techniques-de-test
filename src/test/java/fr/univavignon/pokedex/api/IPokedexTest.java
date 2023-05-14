@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+//import org.junit.BeforeEach;
 
 import java.util.Collections;
 
@@ -36,20 +36,20 @@ public class IPokedexTest{
 
     }
 
-    @BeforeEach
-    public void setUpEach() throws Exception {
-        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        pokemonFactory = mock(IPokemonFactory.class);
-        pokedexFactory = mock(IPokedexFactory.class);
-
-        BULBIZARRE = mock(Pokemon.class);
-        pokedex = mock(IPokedex.class);
-        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
-        when(pokedex.size()).thenReturn(0);
-        when(pokedex.addPokemon(BULBIZARRE)).thenReturn(1);
-        when(pokedex.getPokemon(0)).thenReturn(BULBIZARRE);
-        when(pokedex.getPokemons()).thenReturn(Collections.singletonList(BULBIZARRE));
-    }
+//    @BeforeEach
+//    public void setUpEach() throws Exception {
+//        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+//        pokemonFactory = mock(IPokemonFactory.class);
+//        pokedexFactory = mock(IPokedexFactory.class);
+//
+//        BULBIZARRE = mock(Pokemon.class);
+//        pokedex = mock(IPokedex.class);
+//        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
+//        when(pokedex.size()).thenReturn(0);
+//        when(pokedex.addPokemon(BULBIZARRE)).thenReturn(1);
+//        when(pokedex.getPokemon(0)).thenReturn(BULBIZARRE);
+//        when(pokedex.getPokemons()).thenReturn(Collections.singletonList(BULBIZARRE));
+//    }
 
 
     @After
