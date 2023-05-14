@@ -3,8 +3,7 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@3.2.4
-
+  codecov: codecov/codecov@3.2.2
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -19,6 +18,8 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
+
+
       # Checkout the code as the first step.
       - checkout
       # Use mvn clean and package as the standard maven build phase
@@ -29,15 +30,26 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - store_artifacts:
+          path: target/site/jacoco/jacoco.xml
+          destination: /tmp/artifacts
+
+      - run:
+          name: Upload coverage data to Codecov
+          command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
+      - run:
+          name: Code Coverage
+          command: curl -Os https://uploader.codecov.io/latest/linux/codecov; chmod +x codecov; ./codecov
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+  verification: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
+
     jobs:
-      - build-and-test
-  upload-to-codecov:
-    jobs:
-      - checkout
-      - codecov/upload
+      - build-and-test:
+        filters:
+          branches:
+            only:
+              - master
