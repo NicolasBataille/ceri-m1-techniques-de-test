@@ -14,6 +14,7 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class IPokedexTest{
@@ -95,8 +96,14 @@ public class IPokedexTest{
      */
     public void testGetPokemons() {
         Pokedex pokedex = new Pokedex();
+        Comparator<Pokemon> comparator = new Comparator<Pokemon>() {
+            @Override
+            public int compare(Pokemon o1, Pokemon o2) {
+                return o1.getIndex() - o2.getIndex();
+            }
+        };
         final List<Pokemon> pokemons = new ArrayList<Pokemon>();
-        assertEquals(pokemons, pokedex.getPokemons());
+        assertEquals(pokemons, pokedex.getPokemons(comparator));
     }
 
     @Test
@@ -201,6 +208,29 @@ public class IPokedexTest{
         assertEquals(pokemons, pokedex.getPokemons());
     }
 
+    @Test
+    /**
+     * Test the createPokemon method
+     */
+    public void testCreatePokemon() throws Exception {
+        Pokedex pokedex = new Pokedex();
+        Pokemon pokemon = mock(Pokemon.class);
+        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(
+                pokemon);
+        assertEquals(pokemon, pokedex.createPokemon(0, 613, 64, 4000, 4));
+    }
+
+    @Test
+    /**
+     * Test the getPokemonMetadata method
+     */
+    public void testGetPokemonMetadata() throws Exception {
+        Pokedex pokedex = new Pokedex();
+        PokemonMetadata pokemonMetadata = mock(PokemonMetadata.class);
+        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(
+                pokemonMetadata);
+        assertEquals(pokemonMetadata, pokedex.getPokemonMetadata(0));
+    }
 
 
 
