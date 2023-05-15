@@ -245,5 +245,29 @@ public class IPokedexTest {
 
     }
 
+    @Test
+    /**
+     * Test the ordering method of PokemonComparators in the list
+     */
+    public void testPokedexOrderedByName(){
+        Pokedex pokedex = new Pokedex();
+        Pokemon pokemon1 = new Pokemon(0, "Bulbizare", 126, 126,
+                90, 613, 64, 4000, 4,
+                0.56);
+        Pokemon pokemon2 = new Pokemon(1, "Salamèche", 128, 108,
+                78, 613, 64, 4000, 4,
+                0.56);
+        Pokemon pokemon3 = new Pokemon(2, "Carapuce", 126, 126,
+                90, 613, 64, 4000, 4,
+                0.56);
+        pokedex.addPokemon(pokemon1);
+        pokedex.addPokemon(pokemon2);
+        pokedex.addPokemon(pokemon3);
+        List<Pokemon> pokemons = pokedex.getPokemons(PokemonComparators.NAME);
+        assertEquals(pokemon1, pokemons.get(0));
+        assertEquals(pokemon3, pokemons.get(1));
+        assertEquals(pokemon2, pokemons.get(2));
+    }
+
 
 }
