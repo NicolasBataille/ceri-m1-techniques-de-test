@@ -72,6 +72,8 @@ public class IPokemonMetadataProviderTest {
      * Test the method getPokemonMetadata throws PokedexException
      */
     public void testGetPokemonMetadataThrowsPokedexException() {
+        Pokedex pokedex = new Pokedex(metadataProvider, null);
+        metadataProvider = pokedex.getPokemonMetadataProvider();
         assertThrows(PokedexException.class,
                 () -> metadataProvider.getPokemonMetadata(-1));
     }
