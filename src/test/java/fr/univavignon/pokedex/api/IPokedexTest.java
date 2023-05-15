@@ -231,15 +231,15 @@ public class IPokedexTest {
         Pokemon pokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
         Pokemon pokemonMock = mock(Pokemon.class);
         when(pokemonMock.getIndex()).thenReturn(0);
-        when(pokemonMock.getAttack()).thenReturn(613);
-        when(pokemonMock.getDefense()).thenReturn(64);
-        when(pokemonMock.getStamina()).thenReturn(4000);
-        when(pokemonMock.getCp()).thenReturn(4);
+        when(pokemonMock.getCp()).thenReturn(613);
+        when(pokemonMock.getHp()).thenReturn(64);
+        when(pokemonMock.getDust()).thenReturn(4000);
+        when(pokemonMock.getCandy()).thenReturn(4);
         assertEquals(pokemonMock.getIndex(), pokemon.getIndex());
-        assertEquals(pokemonMock.getAttack(), pokemon.getAttack());
-        assertEquals(pokemonMock.getDefense(), pokemon.getDefense());
-        assertEquals(pokemonMock.getStamina(), pokemon.getStamina());
         assertEquals(pokemonMock.getCp(), pokemon.getCp());
+        assertEquals(pokemonMock.getHp(), pokemon.getHp());
+        assertEquals(pokemonMock.getDust(), pokemon.getDust());
+        assertEquals(pokemonMock.getCandy(), pokemon.getCandy());
     }
 
     @Test
