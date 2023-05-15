@@ -8,21 +8,8 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
      * List of pokemon metadata.
      */
     private List<PokemonMetadata> pokemonMetadatas;
-    /**
-     * Getter for the list of pokemon metadata.
-     * @return pokemonMetadatas
-     */
-    public List<PokemonMetadata> getPokemonMetadatas() {
-        return pokemonMetadatas;
-    }
 
-    /**
-     * Setter for the list of pokemon metadata.
-     * @param pokemonMetadatas
-     */
-    public void setPokemonMetadatas(List<PokemonMetadata> pokemonMetadatas) {
-        this.pokemonMetadatas = pokemonMetadatas;
-    }
+
 
     /**
      * Default constructor where we create 2 pokemons.
@@ -60,4 +47,6 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
         }
         throw new PokedexException("L'index du pokémon n'existe pas");
     }
+
+
 }

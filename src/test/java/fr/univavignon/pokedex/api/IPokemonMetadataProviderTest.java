@@ -1,11 +1,15 @@
 package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 public class IPokemonMetadataProviderTest {
 
@@ -20,16 +24,27 @@ public class IPokemonMetadataProviderTest {
     private IPokemonMetadataProvider metadataProvider;
 
     @Before
+    /**
+     * Setup
+     */
     public void setUp() throws PokedexException {
-        BULBIZARREMetadata = new PokemonMetadata(BULBIZARRE_INDEX, BULBIZARRE_NAME, BULBIZARRE_ATTACK, BULBIZARRE_DEFENSE, BULBIZARRE_STAMINA);
+        BULBIZARREMetadata =
+                new PokemonMetadata(BULBIZARRE_INDEX, BULBIZARRE_NAME,
+                        BULBIZARRE_ATTACK, BULBIZARRE_DEFENSE,
+                        BULBIZARRE_STAMINA);
 
         metadataProvider = mock(IPokemonMetadataProvider.class);
-        when(metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX)).thenReturn(BULBIZARREMetadata);
+        when(metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX)).thenReturn(
+                BULBIZARREMetadata);
     }
 
     @Test
+    /**
+     * Test the method getPokemonMetadata
+     */
     public void testGetPokemonMetadata() throws PokedexException {
-        PokemonMetadata metadata = metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX);
+        PokemonMetadata metadata =
+                metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX);
 
         assertEquals(BULBIZARRE_INDEX, metadata.getIndex());
         assertEquals(BULBIZARRE_NAME, metadata.getName());
@@ -39,10 +54,16 @@ public class IPokemonMetadataProviderTest {
     }
 
     @After
+    /**
+     * Teardown
+     */
     public void tearDown() {
         BULBIZARREMetadata = null;
         metadataProvider = null;
     }
+
+
+
 
     @Test
     public void getIndex() {
