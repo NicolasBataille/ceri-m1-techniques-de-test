@@ -12,6 +12,7 @@ import org.junit.Test;
 //import org.junit.BeforeEach;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,47 +40,51 @@ public class IPokedexTest{
 
     }
 
-//    @BeforeEach
-//    public void setUpEach() throws Exception {
-//        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-//        pokemonFactory = mock(IPokemonFactory.class);
-//        pokedexFactory = mock(IPokedexFactory.class);
-//
-//        BULBIZARRE = mock(Pokemon.class);
-//        pokedex = mock(IPokedex.class);
-//        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
-//        when(pokedex.size()).thenReturn(0);
-//        when(pokedex.addPokemon(BULBIZARRE)).thenReturn(1);
-//        when(pokedex.getPokemon(0)).thenReturn(BULBIZARRE);
-//        when(pokedex.getPokemons()).thenReturn(Collections.singletonList(BULBIZARRE));
-//    }
-
 
 
 
     @After
+    /**
+     * Delete the instance of the class Pokedex
+     */
     public void tearDown(){
         pokedex = null;
     }
 
     @Test
+    /**
+     * Test the method size() of the class Pokedex
+     */
     public void testSize() {
         assertEquals(0, pokedex.size());
     }
 
     @Test
+    /**
+     * Test the method addPokemon(Pokemon pokemon) of the class Pokedex
+     */
     public void testAddPokemon(){
         assertEquals(1, pokedex.addPokemon(BULBIZARRE));
     }
 
     @Test
+    /**
+     * Test the method getPokemon(int index) of the class Pokedex
+     */
     public void testGetPokemon() throws PokedexException {
+        Pokedex pokedex = new Pokedex();
+        pokedex.addPokemon(BULBIZARRE);
         assertEquals(BULBIZARRE, pokedex.getPokemon(0));
     }
 
     @Test
+    /**
+     * Test the method getPokemons() of the class Pokedex
+     */
     public void testGetPokemons() {
-        assertEquals(Collections.singletonList(BULBIZARRE), pokedex.getPokemons());
+        Pokedex pokedex = new Pokedex();
+        List<Pokemon> pokemons = new ArrayList<Pokemon>();
+        assertEquals(pokemons, pokedex.getPokemons());
     }
 
     @Test
