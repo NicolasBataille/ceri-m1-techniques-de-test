@@ -37,8 +37,6 @@ public class IPokemonMetadataProviderTest {
         metadataProvider = mock(IPokemonMetadataProvider.class);
         when(metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX)).thenReturn(
                 BULBIZARREMetadata);
-        when(metadataProvider.getPokemonMetadata(1000)).thenThrow(
-                new PokedexException("L'index du pokémon n'existe pas"));
 
     }
 
@@ -72,6 +70,7 @@ public class IPokemonMetadataProviderTest {
      * Test the method getPokemonMetadata throws PokedexException
      */
     public void testGetPokemonMetadataThrowsPokedexException() throws PokedexException {
+        PokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
         assertThrows(PokedexException.class, () -> {
             metadataProvider.getPokemonMetadata(-1);
         });
