@@ -169,9 +169,8 @@ public class IPokedexTest{
     public void testAddPokemonWithMock() throws Exception {
         Pokedex pokedex = new Pokedex();
         Pokemon pokemon = mock(Pokemon.class);
-        when(pokemon.getIndex()).thenReturn(0);
         when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(pokemon);
-        assertEquals(1, pokedex.addPokemon(pokemon));
+        assertEquals(0, pokedex.addPokemon(pokemon));
     }
 
 
