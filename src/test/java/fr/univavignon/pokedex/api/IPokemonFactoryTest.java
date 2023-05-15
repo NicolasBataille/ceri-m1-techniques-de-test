@@ -9,34 +9,62 @@ import org.junit.Test;
 
 public class IPokemonFactoryTest {
 
-        private static final int BULBIZARRE_INDEX = 0;
-        private static final int BULBIZARRE_CP = 613;
-        private static final int BULBIZARRE_HP = 64;
-        private static final int BULBIZARRE_DUST = 4000;
-        private static final int BULBIZARRE_CANDY = 4;
-        private static final double BULBIZARRE_IV = 0.56;
+    private static final int BULBIZARRE_INDEX = 0;
+    private static final int BULBIZARRE_CP = 613;
+    private static final int BULBIZARRE_HP = 64;
+    private static final int BULBIZARRE_DUST = 4000;
+    private static final int BULBIZARRE_CANDY = 4;
+    private static final double BULBIZARRE_IV = 0.56;
 
-        private Pokemon BULBIZARRE;
+    private Pokemon BULBIZARRE;
 
-        private IPokemonFactory pokemonFactory;
+    private PokemonFactory pokemonFactory;
 
-        @Before
-        public void setUp() throws PokedexException {
-            BULBIZARRE = new Pokemon(BULBIZARRE_INDEX, "Bulbizarre", 126, 126, 90, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY, 0.56);
+    @Before
+    public void setUp() throws PokedexException {
+        BULBIZARRE = new Pokemon(BULBIZARRE_INDEX, "Bulbizarre", 126, 126, 90, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY, 0.56);
 
-            pokemonFactory = mock(IPokemonFactory.class);
-            when(pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY)).thenReturn(BULBIZARRE);
-        }
+        pokemonFactory = mock(PokemonFactory.class);
+        when(pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY)).thenReturn(BULBIZARRE);
+    }
 
-        @Test
-        public void testCreatePokemon() throws PokedexException {
-            Pokemon pokemon = pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY);
-            assertEquals(BULBIZARRE_INDEX, pokemon.getIndex());
-            assertEquals(BULBIZARRE_CP, pokemon.getCp());
-            assertEquals(BULBIZARRE_HP, pokemon.getHp());
-            assertEquals(BULBIZARRE_DUST, pokemon.getDust());
-            assertEquals(BULBIZARRE_CANDY, pokemon.getCandy());
-            assertEquals(BULBIZARRE_IV, pokemon.getIv(), 0.001);
-        }
+    @Test
+    public void testCreatePokemon() throws PokedexException {
+        Pokemon pokemon = pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY);
+        assertEquals(BULBIZARRE_INDEX, pokemon.getIndex());
+        assertEquals(BULBIZARRE_CP, pokemon.getCp());
+        assertEquals(BULBIZARRE_HP, pokemon.getHp());
+        assertEquals(BULBIZARRE_DUST, pokemon.getDust());
+        assertEquals(BULBIZARRE_CANDY, pokemon.getCandy());
+        assertEquals(BULBIZARRE_IV, pokemon.getIv(), 0.001);
+
+        Pokemon mockBulbizarre = mock(Pokemon.class);
+        when(mockBulbizarre.getIndex()).thenReturn(BULBIZARRE_INDEX);
+        when(mockBulbizarre.getCp()).thenReturn(BULBIZARRE_CP);
+        when(mockBulbizarre.getHp()).thenReturn(BULBIZARRE_HP);
+        when(mockBulbizarre.getDust()).thenReturn(BULBIZARRE_DUST);
+        when(mockBulbizarre.getCandy()).thenReturn(BULBIZARRE_CANDY);
+        when(mockBulbizarre.getIv()).thenReturn(BULBIZARRE_IV);
+        assertEquals(mockBulbizarre, pokemon);
+    }
+
+    @Test
+    /**
+     * Test the getPokemonMetadataProvider method
+     */
+    public void testGetPokemonMetadatProvider() throws PokedexException {
+        IPokemonMetadataProvider metadataProvider = pokemonFactory.getPokemonMetadataProvider();
+        assertEquals(BULBIZARRE_INDEX, metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX).getIndex());
+    }
+
+    @Test
+    /**
+     * Test the setPokemonMetadataProvider method
+     */
+    public void testSetPokemonMetadatProvider() throws PokedexException {
+        IPokemonMetadataProvider metadataProvider = pokemonFactory.getPokemonMetadataProvider();
+        pokemonFactory.setPokemonMetadataProvider(metadataProvider);
+        assertEquals(BULBIZARRE_INDEX, metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX).getIndex());
+    }
 
 }
