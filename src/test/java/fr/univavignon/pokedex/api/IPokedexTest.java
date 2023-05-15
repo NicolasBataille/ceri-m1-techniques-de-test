@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -63,22 +64,22 @@ public class IPokedexTest{
 
     @Test
     public void testSize() {
-        Assert.assertEquals(0, pokedex.size());
+        assertEquals(0, pokedex.size());
     }
 
     @Test
     public void testAddPokemon(){
-        Assert.assertEquals(1, pokedex.addPokemon(BULBIZARRE));
+        assertEquals(1, pokedex.addPokemon(BULBIZARRE));
     }
 
     @Test
     public void testGetPokemon() throws PokedexException {
-        Assert.assertEquals(BULBIZARRE, pokedex.getPokemon(0));
+        assertEquals(BULBIZARRE, pokedex.getPokemon(0));
     }
 
     @Test
     public void testGetPokemons() {
-        Assert.assertEquals(Collections.singletonList(BULBIZARRE), pokedex.getPokemons());
+        assertEquals(Collections.singletonList(BULBIZARRE), pokedex.getPokemons());
     }
 
     @Test
@@ -106,8 +107,12 @@ public class IPokedexTest{
     }
 
     @Test
+    /**
+     * Test the Size method with a mock
+     */
     public void testSizeWithMock() throws PokedexException {
-        Assert.assertEquals(0, pokedex.size());
+        Pokedex pokedex = new Pokedex();
+        assertEquals(0, pokedex.size());
     }
 
     @Test
