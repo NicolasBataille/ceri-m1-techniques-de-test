@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.*;
 
 import org.junit.After;
@@ -70,14 +71,9 @@ public class IPokemonMetadataProviderTest {
     /**
      * Test the method getPokemonMetadata throws PokedexException
      */
-    public void testGetPokemonMetadataThrowsPokedexException()
-            throws PokedexException {
-        try {
-            metadataProvider.getPokemonMetadata(-1);
-        } catch (PokedexException e) {
-            Assert.assertEquals("L'index du pokémon n'existe pas",
-                    e.getMessage());
-        }
+    public void testGetPokemonMetadataThrowsPokedexException() {
+        assertThrows(PokedexException.class,
+                () -> metadataProvider.getPokemonMetadata(-1));
     }
 
 }
