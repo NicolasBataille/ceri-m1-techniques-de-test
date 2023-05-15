@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class IPokedexTest{
+public class IPokedexTest {
 
     IPokedex pokedex;
     IPokemonMetadataProvider pokemonMetadataProvider;
@@ -33,22 +33,22 @@ public class IPokedexTest{
 
         BULBIZARRE = mock(Pokemon.class);
         pokedex = mock(IPokedex.class);
-        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
+        when(pokedexFactory.createPokedex(pokemonMetadataProvider,
+                pokemonFactory)).thenReturn(pokedex);
         when(pokedex.size()).thenReturn(0);
         when(pokedex.addPokemon(BULBIZARRE)).thenReturn(1);
         when(pokedex.getPokemon(0)).thenReturn(BULBIZARRE);
-        when(pokedex.getPokemons()).thenReturn(Collections.singletonList(BULBIZARRE));
+        when(pokedex.getPokemons()).thenReturn(
+                Collections.singletonList(BULBIZARRE));
 
     }
-
-
 
 
     @After
     /**
      * Delete the instance of the class Pokedex
      */
-    public void tearDown(){
+    public void tearDown() {
         pokedex = null;
     }
 
@@ -64,7 +64,7 @@ public class IPokedexTest{
     /**
      * Test the method addPokemon(Pokemon pokemon) of the class Pokedex
      */
-    public void testAddPokemon(){
+    public void testAddPokemon() {
         assertEquals(1, pokedex.addPokemon(BULBIZARRE));
     }
 
@@ -113,7 +113,8 @@ public class IPokedexTest{
     public void testPokemonFactoryInstantiation() throws Exception {
         Pokedex pokedex = new Pokedex();
 
-        Field pokemonFactory = pokedex.getClass().getDeclaredField("pokemonFactory");
+        Field pokemonFactory =
+                pokedex.getClass().getDeclaredField("pokemonFactory");
         pokemonFactory.setAccessible(true);
         assertNotNull(pokemonFactory.get(pokedex));
     }
@@ -125,7 +126,8 @@ public class IPokedexTest{
     public void testPokemonMetadataProviderInstantiation() throws Exception {
         Pokedex pokedex = new Pokedex();
 
-        Field pokemonMetadataProvider = pokedex.getClass().getDeclaredField("pokemonMetadataProvider");
+        Field pokemonMetadataProvider =
+                pokedex.getClass().getDeclaredField("pokemonMetadataProvider");
         pokemonMetadataProvider.setAccessible(true);
         assertNotNull(pokemonMetadataProvider.get(pokedex));
     }
@@ -193,7 +195,8 @@ public class IPokedexTest{
     public void testAddPokemonWithMock() throws Exception {
         Pokedex pokedex = new Pokedex();
         Pokemon pokemon = mock(Pokemon.class);
-        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(pokemon);
+        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(
+                pokemon);
         assertEquals(0, pokedex.addPokemon(pokemon));
     }
 
@@ -214,9 +217,8 @@ public class IPokedexTest{
      */
     public void testCreatePokemon() throws Exception {
         Pokedex pokedex = new Pokedex();
-        Pokemon pokemon = mock(Pokemon.class);
-        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(
-                pokemon);
+        pokemonFactory = new PokemonFactory();
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
         assertEquals(pokemon, pokedex.createPokemon(0, 613, 64, 4000, 4));
     }
 
@@ -231,7 +233,6 @@ public class IPokedexTest{
                 pokemonMetadata);
         assertEquals(pokemonMetadata, pokedex.getPokemonMetadata(0));
     }
-
 
 
 }
