@@ -72,13 +72,7 @@ public class IPokemonMetadataProviderTest {
      */
     public void testGetPokemonMetadataThrowsPokedexException()
             throws PokedexException {
-        try {
-            metadataProvider.getPokemonMetadata(1000);
-            Assert.fail("Expected an PokedexException to be thrown");
-        } catch (PokedexException e) {
-            Assert.assertEquals("L'index du pokémon n'existe pas",
-                    e.getMessage());
-        }
+        Assert.assertThrows(PokedexException.class, () -> metadataProvider.getPokemonMetadata(-1));
     }
 
 }

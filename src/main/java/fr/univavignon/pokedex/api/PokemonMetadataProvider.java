@@ -42,7 +42,6 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
     public PokemonMetadata getPokemonMetadata(final int index) throws PokedexException {
         for (PokemonMetadata metadata : pokemonMetadatas) {
             if (metadata.getIndex() == index) {
-                System.out.println("PULLUP");
                 return metadata;
             }
         }
