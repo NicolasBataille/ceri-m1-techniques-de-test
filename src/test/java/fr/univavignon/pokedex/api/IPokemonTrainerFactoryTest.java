@@ -38,6 +38,7 @@ public class IPokemonTrainerFactoryTest {
 
     @Test
     public void testCreateTrainer() {
+        PokemonTrainerFactory pokemonTrainerFactory = new PokemonTrainerFactory();
         assertNotNull(pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC,
                 pokedexFactory));
     }
