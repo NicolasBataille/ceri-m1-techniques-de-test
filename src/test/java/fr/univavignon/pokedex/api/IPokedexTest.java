@@ -116,17 +116,62 @@ public class IPokedexTest{
     }
 
     @Test
+    /**
+     * Test the pokedex constructor with arguments
+     */
     public void testPokedexConstructor() {
-        assertNotNull(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory));
+        Pokedex pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
+        assertNotNull(pokedex);
     }
 
     @Test
+    /**
+     * Test the getPokemonFactory method
+     */
     public void testGetPokemonFactory() throws Exception {
         Pokedex pokedex = new Pokedex();
+        assertNotNull(pokedex.getPokemonFactory());
+    }
 
-        Field pokemonFactory = pokedex.getClass().getDeclaredField("pokemonFactory");
-        pokemonFactory.setAccessible(true);
-        assertNotNull(pokemonFactory.get(pokedex));
+    @Test
+    /**
+     * Test the setPokemonFactory method
+     */
+    public void testSetPokemonFactory() throws Exception {
+        Pokedex pokedex = new Pokedex();
+        pokedex.setPokemonFactory(pokemonFactory);
+        assertNotNull(pokedex.getPokemonFactory());
+    }
+
+    @Test
+    /**
+     * Test the getPokemonMetadataProvider method
+     */
+    public void testGetPokemonMetadataProvider() throws Exception {
+        Pokedex pokedex = new Pokedex();
+        assertNotNull(pokedex.getPokemonMetadataProvider());
+    }
+
+    @Test
+    /**
+     * Test the setPokemonMetadataProvider method
+     */
+    public void testSetPokemonMetadataProvider() throws Exception {
+        Pokedex pokedex = new Pokedex();
+        pokedex.setPokemonMetadataProvider(pokemonMetadataProvider);
+        assertNotNull(pokedex.getPokemonMetadataProvider());
+    }
+
+    @Test
+    /**
+     * Test the addPokemon method
+     */
+    public void testAddPokemonWithMock() throws Exception {
+        Pokedex pokedex = new Pokedex();
+        Pokemon pokemon = mock(Pokemon.class);
+        when(pokemon.getIndex()).thenReturn(0);
+        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(pokemon);
+        assertEquals(1, pokedex.addPokemon(pokemon));
     }
 
 
