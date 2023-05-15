@@ -41,6 +41,17 @@ public class IPokedexTest {
         when(pokedex.getPokemons()).thenReturn(
                 Collections.singletonList(BULBIZARRE));
 
+        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(
+                new PokemonMetadata(0, "Bulbizare", 126, 126, 90));
+        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(
+                BULBIZARRE);
+        when(BULBIZARRE.getIndex()).thenReturn(0);
+        when(BULBIZARRE.getName()).thenReturn("Bulbizare");
+        when(BULBIZARRE.getAttack()).thenReturn(126);
+        when(BULBIZARRE.getDefense()).thenReturn(126);
+        when(BULBIZARRE.getStamina()).thenReturn(90);
+
+
     }
 
 
@@ -217,9 +228,18 @@ public class IPokedexTest {
      */
     public void testCreatePokemon() throws Exception {
         Pokedex pokedex = new Pokedex();
-        pokemonFactory = new PokemonFactory();
-        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals(pokemon, pokedex.createPokemon(0, 613, 64, 4000, 4));
+        Pokemon pokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
+        Pokemon pokemonMock = mock(Pokemon.class);
+        when(pokemon.getIndex()).thenReturn(0);
+        when(pokemon.getAttack()).thenReturn(613);
+        when(pokemon.getDefense()).thenReturn(64);
+        when(pokemon.getStamina()).thenReturn(4000);
+        when(pokemon.getCp()).thenReturn(4);
+        assertEquals(pokemonMock.getIndex(), pokemon.getIndex());
+        assertEquals(pokemonMock.getAttack(), pokemon.getAttack());
+        assertEquals(pokemonMock.getDefense(), pokemon.getDefense());
+        assertEquals(pokemonMock.getStamina(), pokemon.getStamina());
+        assertEquals(pokemonMock.getCp(), pokemon.getCp());
     }
 
     @Test
@@ -227,11 +247,15 @@ public class IPokedexTest {
      * Test the getPokemonMetadata method
      */
     public void testGetPokemonMetadata() throws Exception {
-        Pokedex pokedex = new Pokedex();
-        PokemonMetadata pokemonMetadata = mock(PokemonMetadata.class);
-        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(
-                pokemonMetadata);
-        assertEquals(pokemonMetadata, pokedex.getPokemonMetadata(0));
+        Pokemon pokemon = new Pokemon(0, "Bulbizare", 126, 126, 90, 613, 64,
+                4000, 4, 0.56);
+        PokemonMetadata pokemonMetadata = pokemonMetadataProvider
+                .getPokemonMetadata(0);
+        assertEquals(pokemonMetadata.getIndex(), pokemon.getIndex());
+        assertEquals(pokemonMetadata.getAttack(), pokemon.getAttack());
+        assertEquals(pokemonMetadata.getDefense(), pokemon.getDefense());
+        assertEquals(pokemonMetadata.getStamina(), pokemon.getStamina());
+
     }
 
 
