@@ -32,14 +32,12 @@ public class IPokemonMetadataProviderTest {
         BULBIZARREMetadata = new PokemonMetadata(BULBIZARRE_INDEX, BULBIZARRE_NAME,
                 BULBIZARRE_ATTACK, BULBIZARRE_DEFENSE, BULBIZARRE_STAMINA);
 
-        IPokemonMetadataProvider mockMetadataProvider = mock(IPokemonMetadataProvider.class);
-        when(mockMetadataProvider.getPokemonMetadata(BULBIZARRE_INDEX)).thenReturn(BULBIZARREMetadata);
-        when(mockMetadataProvider.getPokemonMetadata(1000)).thenThrow(
+        metadataProvider = mock(IPokemonMetadataProvider.class);
+        when(metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX)).thenReturn(BULBIZARREMetadata);
+        when(metadataProvider.getPokemonMetadata(1000)).thenThrow(
                 new PokedexException("L'index du pokémon n'existe pas"));
-
-        Pokedex pokedex = new Pokedex(mockMetadataProvider, null);
-        metadataProvider = pokedex.getPokemonMetadataProvider();
     }
+
 
 
     @Test
