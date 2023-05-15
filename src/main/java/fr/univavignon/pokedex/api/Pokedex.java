@@ -42,7 +42,7 @@ public class Pokedex implements IPokedex{
      */
     @Override
     public int size() {
-        return 0;
+        return pokemons.size();
     }
 
     /**

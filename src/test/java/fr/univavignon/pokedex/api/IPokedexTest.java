@@ -105,4 +105,12 @@ public class IPokedexTest{
         assertNotNull(pokemonMetadataProvider.get(pokedex));
     }
 
+    @Test
+    public void testSizeWithMock() throws PokedexException {
+        Assert.assertEquals(0, pokedex.size());
+    }
+
+
+
+
 }
