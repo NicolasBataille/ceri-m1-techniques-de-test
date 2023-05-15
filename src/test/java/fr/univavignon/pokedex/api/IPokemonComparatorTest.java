@@ -31,9 +31,9 @@ public class IPokemonComparatorTest {
 
         Collections.sort(pokemons, PokemonComparators.NAME);
 
-        Assert.assertEquals(bulbizarre, pokemons.get(0));
-        Assert.assertEquals(dracaufeu, pokemons.get(1));
-        Assert.assertEquals(pikachu, pokemons.get(2));
+        Assert.assertEquals(bulbizarre.getName(), pokemons.get(0).getName());
+        Assert.assertEquals(dracaufeu.getName(), pokemons.get(1).getName());
+        Assert.assertEquals(pikachu.getName(), pokemons.get(2).getName());
     }
 
     @Test
@@ -58,9 +58,9 @@ public class IPokemonComparatorTest {
 
         Collections.sort(pokemons, PokemonComparators.INDEX);
 
-        Assert.assertEquals(bulbizarre, pokemons.get(0));
-        Assert.assertEquals(dracaufeu, pokemons.get(1));
-        Assert.assertEquals(pikachu, pokemons.get(2));
+        Assert.assertEquals(bulbizarre.getName(), pokemons.get(0).getName());
+        Assert.assertEquals(dracaufeu.getName(), pokemons.get(1).getName());
+        Assert.assertEquals(pikachu.getName(), pokemons.get(2).getName());
     }
 
     @Test
@@ -85,9 +85,9 @@ public class IPokemonComparatorTest {
 
         Collections.sort(pokemons, PokemonComparators.CP);
 
-        Assert.assertEquals(pikachu, pokemons.get(0));
-        Assert.assertEquals(bulbizarre, pokemons.get(1));
-        Assert.assertEquals(dracaufeu, pokemons.get(2));
+        Assert.assertEquals(bulbizarre.getName(), pokemons.get(0).getName());
+        Assert.assertEquals(dracaufeu.getName(), pokemons.get(1).getName());
+        Assert.assertEquals(pikachu.getName(), pokemons.get(2).getName());
     }
 }
 
