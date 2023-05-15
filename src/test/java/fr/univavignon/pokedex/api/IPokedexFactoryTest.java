@@ -30,7 +30,9 @@ public class IPokedexFactoryTest {
 
     @Test
     public void testCreatePokedex() {
-        assertNotNull(pokedex);
+        PokedexFactory pokedexFactory = new PokedexFactory();
+        assertNotNull(pokedexFactory.createPokedex(pokemonMetadataProvider,
+                pokemonFactory));
     }
 
     @Test
