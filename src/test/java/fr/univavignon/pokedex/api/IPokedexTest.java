@@ -79,11 +79,23 @@ public class IPokedexTest{
 
     @Test
     /**
+     * Test the method getPokemon(int index) of the class Pokedex with the exception PokedexException
+     */
+    public void testGetPokemonWithException() throws PokedexException {
+        Pokedex pokedex = new Pokedex();
+        pokedex.addPokemon(BULBIZARRE);
+        Assert.assertThrows(PokedexException.class, () -> {
+            pokedex.getPokemon(1);
+        });
+    }
+
+    @Test
+    /**
      * Test the method getPokemons() of the class Pokedex
      */
     public void testGetPokemons() {
         Pokedex pokedex = new Pokedex();
-        List<Pokemon> pokemons = new ArrayList<Pokemon>();
+        final List<Pokemon> pokemons = new ArrayList<Pokemon>();
         assertEquals(pokemons, pokedex.getPokemons());
     }
 
@@ -176,6 +188,17 @@ public class IPokedexTest{
         Pokemon pokemon = mock(Pokemon.class);
         when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(pokemon);
         assertEquals(0, pokedex.addPokemon(pokemon));
+    }
+
+    @Test
+    /**
+     * Test the setPokemons method
+     */
+    public void testSetPokemons() throws Exception {
+        Pokedex pokedex = new Pokedex();
+        List<Pokemon> pokemons = new ArrayList<Pokemon>();
+        pokedex.setPokemons(pokemons);
+        assertEquals(pokemons, pokedex.getPokemons());
     }
 
 
