@@ -14,6 +14,7 @@ public class IPokemonFactoryTest {
         private static final int BULBIZARRE_HP = 64;
         private static final int BULBIZARRE_DUST = 4000;
         private static final int BULBIZARRE_CANDY = 4;
+        private static final double BULBIZARRE_IV = 0.56;
 
         private Pokemon BULBIZARRE;
 
@@ -35,6 +36,7 @@ public class IPokemonFactoryTest {
             assertEquals(BULBIZARRE_HP, pokemon.getHp());
             assertEquals(BULBIZARRE_DUST, pokemon.getDust());
             assertEquals(BULBIZARRE_CANDY, pokemon.getCandy());
+            assertEquals(BULBIZARRE_IV, pokemon.getIv(), 0.001);
         }
 
 }
