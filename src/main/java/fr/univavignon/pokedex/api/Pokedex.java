@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Pokedex implements IPokedex{
+public class Pokedex implements IPokedex {
 
     /**
      * List of all pokemons this pokedex contains.
@@ -19,7 +19,8 @@ public class Pokedex implements IPokedex{
     /**
      * Pokemon metadata provider instance used to retrieve pokemon metadata.
      */
-    private IPokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
+    private IPokemonMetadataProvider pokemonMetadataProvider =
+            new PokemonMetadataProvider();
 
     /**
      * Default constructor.
@@ -71,10 +72,10 @@ public class Pokedex implements IPokedex{
     /**
      * Setter for the metadata provider instance.
      */
-    public void setPokemonMetadataProvider(IPokemonMetadataProvider pokemonMetadataProvider) {
+    public void setPokemonMetadataProvider(
+            IPokemonMetadataProvider pokemonMetadataProvider) {
         this.pokemonMetadataProvider = pokemonMetadataProvider;
     }
-
 
 
     /**
@@ -151,7 +152,8 @@ public class Pokedex implements IPokedex{
      * @return Created pokemon instance.
      */
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws PokedexException {
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy)
+            throws PokedexException {
         return pokemonFactory.createPokemon(index, cp, hp, dust, candy);
     }
 
@@ -164,7 +166,8 @@ public class Pokedex implements IPokedex{
      * @throws PokedexException If the given index is not valid.
      */
     @Override
-    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+    public PokemonMetadata getPokemonMetadata(int index)
+            throws PokedexException {
         return pokemonMetadataProvider.getPokemonMetadata(index);
     }
 }

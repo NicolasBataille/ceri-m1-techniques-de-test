@@ -249,6 +249,7 @@ public class IPokedexTest {
     public void testGetPokemonMetadata() throws Exception {
         Pokemon pokemon = new Pokemon(0, "Bulbizare", 126, 126, 90, 613, 64,
                 4000, 4, 0.56);
+        Pokedex pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
         pokedex.addPokemon(pokemon);
         PokemonMetadata pokemonMetadata = pokedex
                 .getPokemonMetadata(0);
