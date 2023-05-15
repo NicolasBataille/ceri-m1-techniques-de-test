@@ -26,10 +26,14 @@ public class IPokemonFactoryTest {
      * Create a Bulbizarre pokemon
      */
     public void setUp() throws PokedexException {
-        BULBIZARRE = new Pokemon(BULBIZARRE_INDEX, "Bulbizarre", 126, 126, 90, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY, 0.56);
+        BULBIZARRE = new Pokemon(BULBIZARRE_INDEX, "Bulbizarre", 126, 126, 90,
+                BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY,
+                0.56);
 
         pokemonFactory = mock(PokemonFactory.class);
-        when(pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY)).thenReturn(BULBIZARRE);
+        when(pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP,
+                BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY)).thenReturn(
+                BULBIZARRE);
     }
 
     @Test
@@ -37,7 +41,9 @@ public class IPokemonFactoryTest {
      * Test the createPokemon method
      */
     public void testCreatePokemon() throws PokedexException {
-        Pokemon pokemon = pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY);
+        Pokemon pokemon =
+                pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP,
+                        BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY);
         assertEquals(BULBIZARRE_INDEX, pokemon.getIndex());
         assertEquals(BULBIZARRE_CP, pokemon.getCp());
         assertEquals(BULBIZARRE_HP, pokemon.getHp());

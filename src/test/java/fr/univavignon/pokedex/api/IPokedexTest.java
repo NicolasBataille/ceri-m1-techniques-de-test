@@ -58,32 +58,28 @@ public class IPokedexTest {
     @After
     /**
      * Delete the instance of the class Pokedex
-     */
-    public void tearDown() {
+     */ public void tearDown() {
         pokedex = null;
     }
 
     @Test
     /**
      * Test the method size() of the class Pokedex
-     */
-    public void testSize() {
+     */ public void testSize() {
         assertEquals(0, pokedex.size());
     }
 
     @Test
     /**
      * Test the method addPokemon(Pokemon pokemon) of the class Pokedex
-     */
-    public void testAddPokemon() {
+     */ public void testAddPokemon() {
         assertEquals(1, pokedex.addPokemon(BULBIZARRE));
     }
 
     @Test
     /**
      * Test the method getPokemon(int index) of the class Pokedex
-     */
-    public void testGetPokemon() throws PokedexException {
+     */ public void testGetPokemon() throws PokedexException {
         Pokedex pokedex = new Pokedex();
         pokedex.addPokemon(BULBIZARRE);
         assertEquals(BULBIZARRE, pokedex.getPokemon(0));
@@ -92,8 +88,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the method getPokemon(int index) of the class Pokedex with the exception PokedexException
-     */
-    public void testGetPokemonWithException() throws PokedexException {
+     */ public void testGetPokemonWithException() throws PokedexException {
         Pokedex pokedex = new Pokedex();
         pokedex.addPokemon(BULBIZARRE);
         Assert.assertThrows(PokedexException.class, () -> {
@@ -104,8 +99,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the method getPokemons() of the class Pokedex
-     */
-    public void testGetPokemons() {
+     */ public void testGetPokemons() {
         Pokedex pokedex = new Pokedex();
         Comparator<Pokemon> comparator = new Comparator<Pokemon>() {
             @Override
@@ -120,8 +114,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the instanciation of the private attribute pokemonFactory
-     */
-    public void testPokemonFactoryInstantiation() throws Exception {
+     */ public void testPokemonFactoryInstantiation() throws Exception {
         Pokedex pokedex = new Pokedex();
 
         Field pokemonFactory =
@@ -133,8 +126,8 @@ public class IPokedexTest {
     @Test
     /**
      * Test the instanciation of the private attribute pokemonMetadataProvider
-     */
-    public void testPokemonMetadataProviderInstantiation() throws Exception {
+     */ public void testPokemonMetadataProviderInstantiation()
+            throws Exception {
         Pokedex pokedex = new Pokedex();
 
         Field pokemonMetadataProvider =
@@ -146,8 +139,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the Size method with a mock
-     */
-    public void testSizeWithMock() throws PokedexException {
+     */ public void testSizeWithMock() throws PokedexException {
         Pokedex pokedex = new Pokedex();
         assertEquals(0, pokedex.size());
     }
@@ -155,8 +147,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the pokedex constructor with arguments
-     */
-    public void testPokedexConstructor() {
+     */ public void testPokedexConstructor() {
         Pokedex pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
         assertNotNull(pokedex);
     }
@@ -164,8 +155,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the getPokemonFactory method
-     */
-    public void testGetPokemonFactory() throws Exception {
+     */ public void testGetPokemonFactory() throws Exception {
         Pokedex pokedex = new Pokedex();
         assertNotNull(pokedex.getPokemonFactory());
     }
@@ -173,8 +163,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the setPokemonFactory method
-     */
-    public void testSetPokemonFactory() throws Exception {
+     */ public void testSetPokemonFactory() throws Exception {
         Pokedex pokedex = new Pokedex();
         pokedex.setPokemonFactory(pokemonFactory);
         assertNotNull(pokedex.getPokemonFactory());
@@ -183,8 +172,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the getPokemonMetadataProvider method
-     */
-    public void testGetPokemonMetadataProvider() throws Exception {
+     */ public void testGetPokemonMetadataProvider() throws Exception {
         Pokedex pokedex = new Pokedex();
         assertNotNull(pokedex.getPokemonMetadataProvider());
     }
@@ -192,8 +180,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the setPokemonMetadataProvider method
-     */
-    public void testSetPokemonMetadataProvider() throws Exception {
+     */ public void testSetPokemonMetadataProvider() throws Exception {
         Pokedex pokedex = new Pokedex();
         pokedex.setPokemonMetadataProvider(pokemonMetadataProvider);
         assertNotNull(pokedex.getPokemonMetadataProvider());
@@ -202,8 +189,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the addPokemon method
-     */
-    public void testAddPokemonWithMock() throws Exception {
+     */ public void testAddPokemonWithMock() throws Exception {
         Pokedex pokedex = new Pokedex();
         Pokemon pokemon = mock(Pokemon.class);
         when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(
@@ -214,8 +200,7 @@ public class IPokedexTest {
     @Test
     /**
      * Test the setPokemons method
-     */
-    public void testSetPokemons() throws Exception {
+     */ public void testSetPokemons() throws Exception {
         Pokedex pokedex = new Pokedex();
         List<Pokemon> pokemons = new ArrayList<Pokemon>();
         pokedex.setPokemons(pokemons);
@@ -225,10 +210,10 @@ public class IPokedexTest {
     @Test
     /**
      * Test the createPokemon method
-     */
-    public void testCreatePokemon() throws Exception {
+     */ public void testCreatePokemon() throws Exception {
         Pokedex pokedex = new Pokedex();
-        Pokemon pokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
+        Pokemon pokemon = pokedex.createPokemon(0, 613, 64,
+                4000, 4);
         Pokemon pokemonMock = mock(Pokemon.class);
         when(pokemonMock.getIndex()).thenReturn(0);
         when(pokemonMock.getCp()).thenReturn(613);
@@ -245,14 +230,14 @@ public class IPokedexTest {
     @Test
     /**
      * Test the getPokemonMetadata method
-     */
-    public void testGetPokemonMetadata() throws Exception {
-        Pokemon pokemon = new Pokemon(0, "Bulbizare", 126, 126, 90, 613, 64,
-                4000, 4, 0.56);
+     */ public void testGetPokemonMetadata() throws Exception {
+        Pokemon pokemon =
+                new Pokemon(0, "Bulbizare", 126, 126,
+                        90, 613, 64, 4000, 4,
+                        0.56);
         Pokedex pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
         pokedex.addPokemon(pokemon);
-        PokemonMetadata pokemonMetadata = pokedex
-                .getPokemonMetadata(0);
+        PokemonMetadata pokemonMetadata = pokedex.getPokemonMetadata(0);
         assertEquals(pokemonMetadata.getIndex(), pokemon.getIndex());
         assertEquals(pokemonMetadata.getAttack(), pokemon.getAttack());
         assertEquals(pokemonMetadata.getDefense(), pokemon.getDefense());

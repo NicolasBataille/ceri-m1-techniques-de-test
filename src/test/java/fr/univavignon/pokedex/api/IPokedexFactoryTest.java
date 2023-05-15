@@ -23,7 +23,8 @@ public class IPokedexFactoryTest {
         pokedexFactory = mock(IPokedexFactory.class);
 
         pokedex = mock(IPokedex.class);
-        when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
+        when(pokedexFactory.createPokedex(pokemonMetadataProvider,
+                pokemonFactory)).thenReturn(pokedex);
     }
 
 
@@ -34,6 +35,7 @@ public class IPokedexFactoryTest {
 
     @Test
     public void testPokedexConstructor() {
-        assertNotNull(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory));
+        assertNotNull(pokedexFactory.createPokedex(pokemonMetadataProvider,
+                pokemonFactory));
     }
 }

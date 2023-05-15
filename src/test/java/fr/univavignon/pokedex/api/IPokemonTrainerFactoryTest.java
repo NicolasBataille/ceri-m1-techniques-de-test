@@ -11,7 +11,8 @@ import org.junit.Test;
 //import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Collections;
-public class IPokemonTrainerFactoryTest{
+
+public class IPokemonTrainerFactoryTest {
 
 
     IPokemonTrainerFactory pokemonTrainerFactory;
@@ -26,7 +27,9 @@ public class IPokemonTrainerFactoryTest{
         pokemonTrainerFactory = mock(IPokemonTrainerFactory.class);
         pokedex = mock(IPokedex.class);
 
-        when(pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC, pokedexFactory)).thenReturn(new PokemonTrainer("Sacha", Team.MYSTIC, pokedex));
+        when(pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC,
+                pokedexFactory)).thenReturn(
+                new PokemonTrainer("Sacha", Team.MYSTIC, pokedex));
     }
 
     @After
@@ -35,21 +38,28 @@ public class IPokemonTrainerFactoryTest{
 
     @Test
     public void testCreateTrainer() {
-        assertNotNull(pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC, pokedexFactory));
+        assertNotNull(pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC,
+                pokedexFactory));
     }
 
     @Test
     public void testGetTrainerName() {
-        Assert.assertEquals("Sacha", pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC, pokedexFactory).getName());
+        Assert.assertEquals("Sacha",
+                pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC,
+                        pokedexFactory).getName());
     }
 
     @Test
     public void testGetTrainerTeam() {
-        Assert.assertEquals(Team.MYSTIC, pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC, pokedexFactory).getTeam());
+        Assert.assertEquals(Team.MYSTIC,
+                pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC,
+                        pokedexFactory).getTeam());
     }
 
     @Test
     public void testGetTrainerPokedex() {
-        Assert.assertEquals(pokedex, pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC, pokedexFactory).getPokedex());
+        Assert.assertEquals(pokedex,
+                pokemonTrainerFactory.createTrainer("Sacha", Team.MYSTIC,
+                        pokedexFactory).getPokedex());
     }
 }

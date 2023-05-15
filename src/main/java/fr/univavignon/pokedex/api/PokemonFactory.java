@@ -18,7 +18,10 @@ public class PokemonFactory implements IPokemonFactory {
                                  final int hp,
                                  final int dust,
                                  final int candy) throws PokedexException {
-        PokemonMetadata pokemonMetadata = new PokemonMetadataProvider().getPokemonMetadata(index);
-        return new Pokemon(index, pokemonMetadata.getName(), pokemonMetadata.getAttack(), pokemonMetadata.getDefense(), pokemonMetadata.getDefense(), cp, hp, dust, candy, 100);
+        PokemonMetadata pokemonMetadata =
+                new PokemonMetadataProvider().getPokemonMetadata(index);
+        return new Pokemon(index, pokemonMetadata.getName(),
+                pokemonMetadata.getAttack(), pokemonMetadata.getDefense(),
+                pokemonMetadata.getDefense(), cp, hp, dust, candy, 100);
     }
 }

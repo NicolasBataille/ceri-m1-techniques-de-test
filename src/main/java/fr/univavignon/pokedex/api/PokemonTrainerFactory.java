@@ -1,6 +1,6 @@
 package fr.univavignon.pokedex.api;
 
-public class PokemonTrainerFactory implements IPokemonTrainerFactory{
+public class PokemonTrainerFactory implements IPokemonTrainerFactory {
     /**
      * Creates and returns a PokemonTrainer instance.
      *
@@ -10,8 +10,11 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory{
      * @return Created trainer instance.
      */
     @Override
-    public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
-        IPokedex pokedex = pokedexFactory.createPokedex(new PokemonMetadataProvider(), new PokemonFactory());
+    public PokemonTrainer createTrainer(String name, Team team,
+                                        IPokedexFactory pokedexFactory) {
+        IPokedex pokedex =
+                pokedexFactory.createPokedex(new PokemonMetadataProvider(),
+                        new PokemonFactory());
         return new PokemonTrainer(name, team, pokedex);
     }
 }
