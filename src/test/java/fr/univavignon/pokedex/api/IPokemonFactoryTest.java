@@ -26,6 +26,7 @@ public class IPokemonFactoryTest {
 
         pokemonFactory = mock(PokemonFactory.class);
         when(pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY)).thenReturn(BULBIZARRE);
+        when(pokemonFactory.getPokemonMetadataProvider()).thenReturn(new PokemonMetadataProvider());
     }
 
     @Test
@@ -38,14 +39,6 @@ public class IPokemonFactoryTest {
         assertEquals(BULBIZARRE_CANDY, pokemon.getCandy());
         assertEquals(BULBIZARRE_IV, pokemon.getIv(), 0.001);
 
-        Pokemon mockBulbizarre = mock(Pokemon.class);
-        when(mockBulbizarre.getIndex()).thenReturn(BULBIZARRE_INDEX);
-        when(mockBulbizarre.getCp()).thenReturn(BULBIZARRE_CP);
-        when(mockBulbizarre.getHp()).thenReturn(BULBIZARRE_HP);
-        when(mockBulbizarre.getDust()).thenReturn(BULBIZARRE_DUST);
-        when(mockBulbizarre.getCandy()).thenReturn(BULBIZARRE_CANDY);
-        when(mockBulbizarre.getIv()).thenReturn(BULBIZARRE_IV);
-        assertEquals(mockBulbizarre, pokemon);
     }
 
     @Test
