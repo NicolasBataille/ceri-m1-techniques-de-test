@@ -30,7 +30,6 @@ public class IPokemonFactoryTest {
 
         pokemonFactory = mock(PokemonFactory.class);
         when(pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY)).thenReturn(BULBIZARRE);
-        when(pokemonFactory.getPokemonMetadataProvider()).thenReturn(new PokemonMetadataProvider());
     }
 
     @Test
@@ -48,23 +47,5 @@ public class IPokemonFactoryTest {
 
     }
 
-    @Test
-    /**
-     * Test the getPokemonMetadataProvider method
-     */
-    public void testGetPokemonMetadatProvider() throws PokedexException {
-        IPokemonMetadataProvider metadataProvider = pokemonFactory.getPokemonMetadataProvider();
-        assertNotNull(metadataProvider);
-    }
-
-    @Test
-    /**
-     * Test the setPokemonMetadataProvider method
-     */
-    public void testSetPokemonMetadatProvider() throws PokedexException {
-        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-        pokemonFactory.setPokemonMetadataProvider(metadataProvider);
-        assertNotNull(pokemonFactory.getPokemonMetadataProvider());
-    }
 
 }
