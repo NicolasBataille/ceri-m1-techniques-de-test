@@ -110,6 +110,20 @@ public class IPokedexTest{
         Assert.assertEquals(0, pokedex.size());
     }
 
+    @Test
+    public void testPokedexConstructor() {
+        assertNotNull(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory));
+    }
+
+    @Test
+    public void testGetPokemonFactory() throws Exception {
+        Pokedex pokedex = new Pokedex();
+
+        Field pokemonFactory = pokedex.getClass().getDeclaredField("pokemonFactory");
+        pokemonFactory.setAccessible(true);
+        assertNotNull(pokemonFactory.get(pokedex));
+    }
+
 
 
 
