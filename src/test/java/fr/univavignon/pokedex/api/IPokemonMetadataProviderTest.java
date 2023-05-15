@@ -63,26 +63,22 @@ public class IPokemonMetadataProviderTest {
     }
 
 
-
-
     @Test
-    public void getIndex() {
+    /**
+     * Test the method getPokemonMetadata throws PokedexException
+     */
+    public void testGetPokemonMetadataThrowsPokedexException()
+            throws PokedexException {
+        when(metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX)).thenThrow(
+                new PokedexException("L'index du pokémon n'existe pas"));
+        try {
+            metadataProvider.getPokemonMetadata(BULBIZARRE_INDEX);
+            Assert.fail("Expected an PokedexException to be thrown");
+        } catch (PokedexException e) {
+            Assert.assertEquals("L'index du pokémon n'existe pas",
+                    e.getMessage());
+        }
     }
 
-    @Test
-    public void getName() {
-    }
-
-    @Test
-    public void getAttack() {
-    }
-
-    @Test
-    public void getDefense() {
-    }
-
-    @Test
-    public void getStamina() {
-    }
 }
 
