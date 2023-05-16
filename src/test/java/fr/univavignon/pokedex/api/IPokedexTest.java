@@ -101,14 +101,9 @@ public class IPokedexTest {
      * Test the method getPokemons() of the class Pokedex
      */ public void testGetPokemons() {
         Pokedex pokedex = new Pokedex();
-        Comparator<Pokemon> comparator = new Comparator<Pokemon>() {
-            @Override
-            public int compare(Pokemon o1, Pokemon o2) {
-                return o1.getIndex() - o2.getIndex();
-            }
-        };
+
         final List<Pokemon> pokemons = new ArrayList<Pokemon>();
-        assertEquals(pokemons, pokedex.getPokemons(comparator));
+        assertEquals(pokemons, pokedex.getPokemons());
     }
 
     @Test
@@ -229,6 +224,7 @@ public class IPokedexTest {
         assertEquals(pokemon3, pokemons.get(1));
         assertEquals(pokemon2, pokemons.get(2));
     }
+
 
 
 }
