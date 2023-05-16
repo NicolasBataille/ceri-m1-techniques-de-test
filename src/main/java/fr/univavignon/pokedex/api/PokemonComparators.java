@@ -27,15 +27,15 @@ public enum PokemonComparators implements Comparator<Pokemon> {
     /**
      * Delegate comparator instance.
      **/
-    private final Comparator<Pokemon> delegate;
+    private final Comparator<Pokemon> pokemonComparator;
 
     /**
      * Default constructor.
      *
-     * @param delegate Delegate comparator instance.
+     * @param comparator Delegate comparator instance.
      */
-    PokemonComparators(final Comparator<Pokemon> delegate) {
-        this.delegate = delegate;
+    PokemonComparators(final Comparator<Pokemon> comparator) {
+        this.pokemonComparator = comparator;
     }
 
     /**
@@ -43,8 +43,7 @@ public enum PokemonComparators implements Comparator<Pokemon> {
      **/
     @Override
     public int compare(final Pokemon first, final Pokemon second) {
-
-        return delegate.compare(first, second);
+        return pokemonComparator.compare(first, second);
     }
 
 }

@@ -10,7 +10,6 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
     private final List<PokemonMetadata> pokemonMetadatas;
 
 
-
     /**
      * Default constructor where we create 2 pokemons.
      */
@@ -36,10 +35,11 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
      * @param index Index of the pokemon to retrieve metadata for.
      * @return Metadata of the pokemon.
      * @throws PokedexException If the given
-     * <code>index</code> is not valid.
+     *                          <code>index</code> is not valid.
      */
     @Override
-    public PokemonMetadata getPokemonMetadata(final int index) throws PokedexException {
+    public PokemonMetadata getPokemonMetadata(final int index)
+            throws PokedexException {
         for (PokemonMetadata metadata : pokemonMetadatas) {
             if (metadata.getIndex() == index) {
                 return metadata;

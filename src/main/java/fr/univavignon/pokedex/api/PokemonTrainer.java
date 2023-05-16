@@ -9,18 +9,18 @@ public class PokemonTrainer {
 
     /**
      * Trainer name.
-     **/
-    private final String name;
+     */
+    private final String trainerName;
 
     /**
      * Trainer team.
-     **/
-    private final Team team;
+     */
+    private final Team trainerTeam;
 
     /**
      * Trainer pokedex.
-     **/
-    private final IPokedex pokedex;
+     */
+    private final IPokedex trainerPokedex;
 
     /**
      * Default constructor.
@@ -31,39 +31,36 @@ public class PokemonTrainer {
      */
     public PokemonTrainer(final String name, final Team team,
                           final IPokedex pokedex) {
-        this.name = name;
-        this.team = team;
-        this.pokedex = pokedex;
+        this.trainerName = name;
+        this.trainerTeam = team;
+        this.trainerPokedex = pokedex;
     }
 
-    /** Name getter. **/
     /**
-     * Returns the trainer name.
+     * Name getter.
      *
-     * @return
+     * @return the trainer name
      */
     public String getName() {
-        return name;
+        return trainerName;
     }
 
-    /** Team getter. **/
     /**
-     * Returns the trainer team.
+     * Team getter.
      *
-     * @return
+     * @return the trainer team
      */
     public Team getTeam() {
-        return team;
+        return trainerTeam;
     }
 
-    /** Pokedex getter. **/
     /**
-     * Returns the trainer pokedex.
+     * Pokedex getter.
      *
-     * @return
+     * @return the trainer pokedex
      */
     public IPokedex getPokedex() {
-        return pokedex;
+        return trainerPokedex;
     }
 
 }

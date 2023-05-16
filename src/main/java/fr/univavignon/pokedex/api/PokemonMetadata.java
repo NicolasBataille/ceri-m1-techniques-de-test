@@ -3,34 +3,34 @@ package fr.univavignon.pokedex.api;
 /**
  * Pokemon metadata POJO.
  *
- * @author fv
+ * author fv
  */
 public class PokemonMetadata {
 
     /**
      * Pokemon index.
-     **/
-    private final int index;
+     */
+    private final int pokemonIndex;
 
     /**
      * Pokemon name.
-     **/
-    private final String name;
+     */
+    private final String pokemonName;
 
     /**
      * Pokemon attack level.
-     **/
-    private final int attack;
+     */
+    private final int pokemonAttack;
 
     /**
      * Pokemon defense level.
-     **/
-    private final int defense;
+     */
+    private final int pokemonDefense;
 
     /**
      * Pokemon stamina level.
-     **/
-    private final int stamina;
+     */
+    private final int pokemonStamina;
 
     /**
      * Default constructor.
@@ -43,58 +43,55 @@ public class PokemonMetadata {
      */
     public PokemonMetadata(final int index, final String name, final int attack,
                            final int defense, final int stamina) {
-        this.index = index;
-        this.name = name;
-        this.attack = attack;
-        this.defense = defense;
-        this.stamina = stamina;
+        this.pokemonIndex = index;
+        this.pokemonName = name;
+        this.pokemonAttack = attack;
+        this.pokemonDefense = defense;
+        this.pokemonStamina = stamina;
     }
 
     /**
      * Index getter.
-     **/
+     *
+     * @return the index of the pokemon
+     */
     public int getIndex() {
-        return index;
+        return pokemonIndex;
     }
 
-    /** Name getter.**/
     /**
-     * return the name of the pokemon
+     * Name getter.
      *
-     * @return
+     * @return the name of the pokemon
      */
     public String getName() {
-        return name;
+        return pokemonName;
     }
 
-    /** Attack level getter. **/
     /**
-     * return the attack level of the pokemon
+     * Attack level getter.
      *
-     * @return
+     * @return the attack level of the pokemon
      */
     public int getAttack() {
-        return attack;
+        return pokemonAttack;
     }
 
-    /** Defense level getter. **/
     /**
-     * return the defense level of the pokemon
+     * Defense level getter.
      *
-     * @return
+     * @return the defense level of the pokemon
      */
     public int getDefense() {
-        return defense;
+        return pokemonDefense;
     }
 
-    /** Stamina level getter. **/
     /**
-     * return the stamina level of the pokemon
+     * Stamina level getter.
      *
-     * @return
+     * @return the stamina level of the pokemon
      */
     public int getStamina() {
-        return stamina;
+        return pokemonStamina;
     }
-
 }
