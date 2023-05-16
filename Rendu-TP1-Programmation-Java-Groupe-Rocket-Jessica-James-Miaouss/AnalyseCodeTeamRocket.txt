@@ -1,0 +1,13 @@
+On retrouve plusieurs problèmes dans le code de la team rocket, qui ne passe d'ailleurs
+pas les tests unitaires de la classe.
+
+En effet, la méthode de création de pokémon empêche d'avoir un autre nom de pokémon que MISSINGNO
+ou Bulbasaur. On ne peut donner que deux index logiques : 0 et 1. Seul le 1 permet d'avoir
+bulbasaur comme nom, sinon on a forcément MISSINGNO. On peut également avoir "Ash's Pikachu",
+mais en donnant un index de -1, ce qui va à l'encontre de la logique de l'index.
+
+De plus, on ne récupère pas des stats prédéfinis dans un provider de Metadata, mais
+on les génère directement dans la méthode. Si on donne un index négatif, on a des stats
+très élevés, sinon on effectue une génération aléatoire de stats qui s'effectue dans une
+méthode avec une très longue boucle for, ce qui pourrait potentiellement affecter les performances
+de l'application. 
