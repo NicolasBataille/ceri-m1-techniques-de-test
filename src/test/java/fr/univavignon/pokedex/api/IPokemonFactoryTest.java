@@ -26,14 +26,8 @@ public class IPokemonFactoryTest {
      * Create a Bulbizarre pokemon
      */
     public void setUp() throws PokedexException {
-        BULBIZARRE = new Pokemon(BULBIZARRE_INDEX, "Bulbizarre", 126, 126, 90,
-                BULBIZARRE_CP, BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY,
-                0.56);
-
-        pokemonFactory = mock(PokemonFactory.class);
-        when(pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP,
-                BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY)).thenReturn(
-                BULBIZARRE);
+        pokemonFactory = new PokemonFactory();
+        BULBIZARRE = new Pokemon(133, "Bulbizarre", 186, 168, 260, 2729, 202, 5000, 4,100);
     }
 
     @Test
@@ -41,16 +35,17 @@ public class IPokemonFactoryTest {
      * Test the createPokemon method
      */
     public void testCreatePokemon() throws PokedexException {
-        Pokemon pokemon =
-                pokemonFactory.createPokemon(BULBIZARRE_INDEX, BULBIZARRE_CP,
-                        BULBIZARRE_HP, BULBIZARRE_DUST, BULBIZARRE_CANDY);
-        assertEquals(BULBIZARRE_INDEX, pokemon.getIndex());
-        assertEquals(BULBIZARRE_CP, pokemon.getCp());
-        assertEquals(BULBIZARRE_HP, pokemon.getHp());
-        assertEquals(BULBIZARRE_DUST, pokemon.getDust());
-        assertEquals(BULBIZARRE_CANDY, pokemon.getCandy());
-        assertEquals(BULBIZARRE_IV, pokemon.getIv(), 0.001);
-
+        Pokemon bulbiBis = pokemonFactory.createPokemon(BULBIZARRE.getIndex(), BULBIZARRE.getCp(), BULBIZARRE.getHp(), BULBIZARRE.getDust(), BULBIZARRE.getCandy());
+        assertEquals(BULBIZARRE.getIndex(), bulbiBis.getIndex());
+        assertEquals(BULBIZARRE.getName(), bulbiBis.getName());
+        assertEquals(BULBIZARRE.getAttack(), bulbiBis.getAttack());
+        assertEquals(BULBIZARRE.getDefense(), bulbiBis.getDefense());
+        assertEquals(BULBIZARRE.getStamina(), bulbiBis.getStamina());
+        assertEquals(BULBIZARRE.getCp(), bulbiBis.getCp());
+        assertEquals(BULBIZARRE.getHp(), bulbiBis.getHp());
+        assertEquals(BULBIZARRE.getDust(), bulbiBis.getDust());
+        assertEquals(BULBIZARRE.getCandy(), bulbiBis.getCandy());
+        assertEquals(BULBIZARRE.getIv(), bulbiBis.getIv(), 0.001);
     }
 
 

@@ -7,7 +7,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
     /**
      * List of pokemon metadata.
      */
-    private List<PokemonMetadata> pokemonMetadatas;
+    private final List<PokemonMetadata> pokemonMetadatas;
 
 
 
