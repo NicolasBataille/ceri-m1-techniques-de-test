@@ -34,17 +34,17 @@ public class IPokemonFactoryTest {
      * Test the createPokemon method
      */
     public void testCreatePokemon() throws PokedexException {
-        Pokemon bulbiBis = pokemonFactory.createPokemon(AQUALI.getIndex(), AQUALI.getCp(), AQUALI.getHp(), AQUALI.getDust(), AQUALI.getCandy());
-        assertEquals(AQUALI.getIndex(), bulbiBis.getIndex());
-        assertEquals(AQUALI.getName(), bulbiBis.getName());
-        assertEquals(AQUALI.getAttack(), bulbiBis.getAttack());
-        assertEquals(AQUALI.getDefense(), bulbiBis.getDefense());
-        assertEquals(AQUALI.getStamina(), bulbiBis.getStamina());
-        assertEquals(AQUALI.getCp(), bulbiBis.getCp());
-        assertEquals(AQUALI.getHp(), bulbiBis.getHp());
-        assertEquals(AQUALI.getDust(), bulbiBis.getDust());
-        assertEquals(AQUALI.getCandy(), bulbiBis.getCandy());
-        assertEquals(AQUALI.getIv(), bulbiBis.getIv(), 0.001);
+        Pokemon aquaBis = pokemonFactory.createPokemon(AQUALI.getIndex(), AQUALI.getCp(), AQUALI.getHp(), AQUALI.getDust(), AQUALI.getCandy());
+        assertEquals(AQUALI.getIndex(), aquaBis.getIndex());
+        assertEquals(AQUALI.getName(), aquaBis.getName());
+        assertEquals(AQUALI.getAttack(), aquaBis.getAttack());
+        assertEquals(AQUALI.getDefense(), aquaBis.getDefense());
+        assertEquals(AQUALI.getStamina(), aquaBis.getStamina());
+        assertEquals(AQUALI.getCp(), aquaBis.getCp());
+        assertEquals(AQUALI.getHp(), aquaBis.getHp());
+        assertEquals(AQUALI.getDust(), aquaBis.getDust());
+        assertEquals(AQUALI.getCandy(), aquaBis.getCandy());
+        assertEquals(AQUALI.getIv(), aquaBis.getIv(), 0.001);
     }
 
 
