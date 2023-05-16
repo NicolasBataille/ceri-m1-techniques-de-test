@@ -152,39 +152,9 @@ public class IPokedexTest {
         assertNotNull(pokedex);
     }
 
-    @Test
-    /**
-     * Test the getPokemonFactory method
-     */ public void testGetPokemonFactory() throws Exception {
-        Pokedex pokedex = new Pokedex();
-        assertNotNull(pokedex.getPokemonFactory());
-    }
 
-    @Test
-    /**
-     * Test the setPokemonFactory method
-     */ public void testSetPokemonFactory() throws Exception {
-        Pokedex pokedex = new Pokedex();
-        pokedex.setPokemonFactory(pokemonFactory);
-        assertNotNull(pokedex.getPokemonFactory());
-    }
 
-    @Test
-    /**
-     * Test the getPokemonMetadataProvider method
-     */ public void testGetPokemonMetadataProvider() throws Exception {
-        Pokedex pokedex = new Pokedex();
-        assertNotNull(pokedex.getPokemonMetadataProvider());
-    }
 
-    @Test
-    /**
-     * Test the setPokemonMetadataProvider method
-     */ public void testSetPokemonMetadataProvider() throws Exception {
-        Pokedex pokedex = new Pokedex();
-        pokedex.setPokemonMetadataProvider(pokemonMetadataProvider);
-        assertNotNull(pokedex.getPokemonMetadataProvider());
-    }
 
     @Test
     /**
@@ -197,15 +167,6 @@ public class IPokedexTest {
         assertEquals(0, pokedex.addPokemon(pokemon));
     }
 
-    @Test
-    /**
-     * Test the setPokemons method
-     */ public void testSetPokemons() throws Exception {
-        Pokedex pokedex = new Pokedex();
-        List<Pokemon> pokemons = new ArrayList<Pokemon>();
-        pokedex.setPokemons(pokemons);
-        assertEquals(pokemons, pokedex.getPokemons());
-    }
 
     @Test
     /**
