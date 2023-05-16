@@ -20,6 +20,4 @@
 <error line="26" column="17" severity="error" message="&apos;168&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="27" column="17" severity="error" message="&apos;260&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
-<file name="/Users/batum/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Univ/Master 1/S2/Techniques de test/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Pokedex.java">
-</file>
 </checkstyle>
