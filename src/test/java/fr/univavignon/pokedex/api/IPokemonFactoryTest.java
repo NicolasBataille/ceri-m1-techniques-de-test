@@ -26,7 +26,7 @@ public class IPokemonFactoryTest {
      */
     public void setUp() throws PokedexException {
         pokemonFactory = new PokemonFactory();
-        AQUALI = new Pokemon(133, "AQUALI", 186, 168, 260, 2729, 202, 5000, 4,100);
+        AQUALI = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4,100);
     }
 
     @Test
